@@ -82,11 +82,11 @@ class Cmd:
             'project': self.project
         }
         result = self._template.render(args)
-        w = open("test.adoc", "w")
+        w = open("temporaryrender.adoc", "w")
         w.write(result)
         w.close()
-        os.system("asciidoctor-pdf test.adoc")
-        os.system(".\\test.pdf")
+        os.system("asciidoctor-pdf temporaryrender.adoc")
+        os.system(".\\temporaryrender.pdf")
 
     def sample(self):
         self.render()
