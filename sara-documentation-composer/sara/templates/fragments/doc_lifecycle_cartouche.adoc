@@ -1,0 +1,21 @@
+//
+// Documentation lifecycle cartouche
+//
+
+[stripes="none"]]
+|=============================================
+|*Prepared by*: | - |*Date*: | Signature
+//{% for prep in doc.preparations %}
+| {{prep.name}} | {{prep.function}} | {{prep.date}} | -
+//{% endfor %}
+
+|*Contributors*: | - |*Date*: | -
+//{% for cont in doc.contributions %}
+2.+| {{cont.name}} | {{cont.date}} |.
+//{% endfor %}
+
+|*Approved*: | - |*Date*: | Signature
+//{% for app in doc.approbations %}
+| {{app.name}} | {{app.function}} | {{app.date}} | -
+//{% endfor %}
+|=============================================
