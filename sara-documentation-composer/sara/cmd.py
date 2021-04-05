@@ -4,9 +4,18 @@ import os
 from jinja2 import Environment, FileSystemLoader
 from jinja2.exceptions import TemplateNotFound
 
+import pandoc
+
+#from htmldocx import HtmlToDocx
+
+#import win32com.client
+
+
+
 import related
 
 from models import Project, Document
+
 
 
 class Cmd:
@@ -87,6 +96,17 @@ class Cmd:
         w.close()
         os.system("asciidoctor-pdf temporaryrender.adoc")
         os.system(".\\temporaryrender.pdf")
+        os.system("asciidoctor temporaryrender.adoc")
+        os.system(".\\temporaryrender.html")
+
+        #os.system("pandoc temporaryrender.html -o temporaryrender.docx")
+        #os.system(".\\temporaryrender.docx")
+
+        os.system("pandoc --reference-doc custom-reference.docx temporaryrender.html -o temporaryrender.docx")
+        os.system(".\\temporaryrender.docx")
+
+        #os.system(".\\temporaryrendertest.docx")
+
 
     def sample(self):
         self.render()
